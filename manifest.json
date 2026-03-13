@@ -1,6 +1,6 @@
 {
   "name": "Sistema ERP",
-  "short_name": "ERP",
+  "short_name": "App PERFIL",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
