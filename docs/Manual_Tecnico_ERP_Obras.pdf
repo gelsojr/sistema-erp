@@ -1,0 +1,660 @@
+%PDF-1.3
+%ºß¬à
+3 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 4 0 R
+>>
+endobj
+4 0 obj
+<<
+/Length 5606
+>>
+stream
+0.200025 w
+0 G
+BT
+/F2 18 Tf
+20.6999999999999993 TL
+0 g
+48. 777.8899999999999864 Td
+(Manual Tecnico - ERP Obras e Manutencao) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 753.8899999999999864 Td
+(Versao de referencia: 2026-02-23) Tj
+ET
+0.71 G
+48. 735.8899999999999864 m
+547.2799999999999727 735.8899999999999864 l
+S
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 719.8899999999999864 Td
+(Este documento descreve operacao, seguranca, arquitetura e rotina de suporte do ERP interno \(web e) Tj
+T* (mobile/PWA\) usado para gestao de obras, equipamentos e manutencao.) Tj
+ET
+BT
+/F2 13 Tf
+14.9499999999999993 TL
+0 g
+48. 683.8899999999999864 Td
+(1. Escopo do sistema) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 665.8899999999999864 Td
+(- Uso interno para ate 15 usuarios ativos.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 648.8899999999999864 Td
+(- Modulos principais: Dashboard, Em Campo, Abastecimentos, Oficina, Pontes, Usina, Banco de) Tj
+T* (Dados, Relatorios e Configuracoes.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 616.8899999999999864 Td
+(- Backend em Supabase \(Auth, Postgres, RLS e Edge Function para CRUD de usuarios\). ) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 599.8899999999999864 Td
+(- Modo offline com fila local e sincronizacao automatica ao retornar internet.) Tj
+ET
+BT
+/F2 13 Tf
+14.9499999999999993 TL
+0 g
+48. 582.8899999999999864 Td
+(2. Arquitetura tecnica) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 564.8899999999999864 Td
+(- Frontend: React + Vite \(JavaScript\). ) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 547.8899999999999864 Td
+(- Persistencia remota: Supabase Postgres com Row Level Security.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 530.8899999999999864 Td
+(- Autenticacao: email/senha no Supabase Auth.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 513.8899999999999864 Td
+(- Controle de acesso \(RBAC\): tabela de permissoes por usuario.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 496.8899999999999864 Td
+(- Regra de conflito: ultima atualizacao vence \(last write wins\). ) Tj
+ET
+BT
+/F2 13 Tf
+14.9499999999999993 TL
+0 g
+48. 479.8899999999999864 Td
+(3. Perfis e seguranca) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 461.8899999999999864 Td
+(- Usuario Admin: gerencia usuarios, permissoes e configuracoes sensiveis.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 444.8899999999999864 Td
+(- Usuario Operador: acesso somente aos modulos liberados por permissao.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 427.8899999999999864 Td
+(- Limite de 15 usuarios ativos aplicado no banco e na aplicacao.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 410.8899999999999864 Td
+(- Edge Function admin-users exige JWT valido e valida se solicitante e admin ativo.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 393.8899999999999864 Td
+(- Nao e permitido excluir o proprio usuario nem o ultimo admin ativo.) Tj
+ET
+BT
+/F2 13 Tf
+14.9499999999999993 TL
+0 g
+48. 376.8899999999999864 Td
+(4. Rotina de uso por modulo) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 358.8899999999999864 Td
+(- Em Campo: atualizacao de horimetro, status e apontamentos de ocorrencias.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 341.8899999999999864 Td
+(- Oficina: controle de alertas, manutencao, parada e liberacao de equipamento.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 324.8899999999999864 Td
+(- Abastecimentos: registros de diesel/ARLA/engraxe e entregas de combustivel.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 307.8899999999999864 Td
+(- Pontes: projetos, materiais, colaboradores, custos fixos e diario de obra.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 290.8899999999999864 Td
+(- Usina: entregas de agregados/ligantes, producao diaria e cargas.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 273.8899999999999864 Td
+(- Banco de Dados: CRUD base de Obras, Equipamentos e Colaboradores.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 256.8899999999999864 Td
+(- Configuracoes: CRUD de usuarios e permissao por pagina.) Tj
+ET
+BT
+/F2 13 Tf
+14.9499999999999993 TL
+0 g
+48. 239.8899999999999864 Td
+(5. Operacao offline) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 221.8899999999999864 Td
+(- Sem internet, operacoes de dados entram em fila local automaticamente.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 204.8899999999999864 Td
+(- Ao reconectar, o sistema sincroniza e exibe notificacao de sucesso/pendencia.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 187.8899999999999864 Td
+(- Operacoes que NAO funcionam offline: login e CRUD de usuarios \(Auth/Edge Function\).) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 170.8899999999999864 Td
+(- Para validar offline: executar alteracoes com rede offline, reconectar e conferir no Supabase.) Tj
+ET
+BT
+/F2 13 Tf
+14.9499999999999993 TL
+0 g
+48. 153.8899999999999864 Td
+(6. PWA e uso mobile) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 135.8899999999999864 Td
+(- Em producao HTTPS, navegador permite instalar atalho/app \(Add to Home Screen\). ) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 118.8899999999999864 Td
+(- Android/Chrome: prompt de instalacao automatico ou via menu.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 101.8899999999999864 Td
+(- iPhone/Safari: instalar via Compartilhar > Adicionar a Tela de Inicio.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 84.8899999999999864 Td
+(- Service Worker ativo em producao HTTPS para suporte de cache e navegacao offline.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0.471 g
+48. 24. Td
+(Manual Tecnico ERP Obras | Pagina 1 de 2) Tj
+ET
+endstream
+endobj
+5 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 6 0 R
+>>
+endobj
+6 0 obj
+<<
+/Length 2545
+>>
+stream
+0.200025 w
+0.71 G
+BT
+/F2 13 Tf
+14.9499999999999993 TL
+0 g
+48. 785.8899999999999864 Td
+(7. Procedimento de novos usuarios) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 767.8899999999999864 Td
+(- Admin acessa Configuracoes > Novo Usuario.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 750.8899999999999864 Td
+(- Define email, senha, nome, role, obra e permissoes.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 733.8899999999999864 Td
+(- Opcional: marcar usuario administrador.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 716.8899999999999864 Td
+(- Recomendacao: criar usuario teste e validar login antes de liberar ao time.) Tj
+ET
+BT
+/F2 13 Tf
+14.9499999999999993 TL
+0 g
+48. 699.8899999999999864 Td
+(8. Checklist de operacao diaria) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 681.8899999999999864 Td
+(- Conferir conectividade e sincronizacao \(quando aplicavel\).) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 664.8899999999999864 Td
+(- Validar registros principais do dia: horimetro, abastecimento, manutencao, producao.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 647.8899999999999864 Td
+(- Revisar alertas pendentes de oficina e inconsistencias de dados.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 630.8899999999999864 Td
+(- Executar backup logico conforme politica da empresa \(periodico\).) Tj
+ET
+BT
+/F2 13 Tf
+14.9499999999999993 TL
+0 g
+48. 613.8899999999999864 Td
+(9. Troubleshooting rapido) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 595.8899999999999864 Td
+(- 401 na Edge Function: validar sessao, JWT habilitado, usuario admin ativo e secret) Tj
+T* (SUPABASE_SERVICE_ROLE_KEY.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 563.8899999999999864 Td
+(- Falha de sync offline: reconectar internet, aguardar flush da fila e validar se ha pendencias.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 546.8899999999999864 Td
+(- Usuario sem acesso: revisar permissoes RBAC em Configuracoes.) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 529.8899999999999864 Td
+(- PWA sem opcao de instalar: confirmar HTTPS e manifest/service worker ativos.) Tj
+ET
+BT
+/F2 13 Tf
+14.9499999999999993 TL
+0 g
+48. 512.8899999999999864 Td
+(10. Dados de referencia) Tj
+ET
+BT
+/F1 11 Tf
+12.6499999999999986 TL
+0 g
+48. 494.8899999999999864 Td
+(Projeto: ERP Obras Cliente) Tj
+T* (Tecnologia: React/Vite + Supabase) Tj
+T* (Canal de suporte tecnico: preencher contato interno da equipe responsavel.) Tj
+ET
+BT
+/F1 9 Tf
+10.3499999999999996 TL
+0.471 g
+48. 24. Td
+(Manual Tecnico ERP Obras | Pagina 2 de 2) Tj
+ET
+endstream
+endobj
+1 0 obj
+<</Type /Pages
+/Kids [3 0 R 5 0 R ]
+/Count 2
+>>
+endobj
+7 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+8 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica-Bold
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+9 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica-Oblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+10 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica-BoldOblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+11 0 obj
+<<
+/Type /Font
+/BaseFont /Courier
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+12 0 obj
+<<
+/Type /Font
+/BaseFont /Courier-Bold
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+13 0 obj
+<<
+/Type /Font
+/BaseFont /Courier-Oblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+14 0 obj
+<<
+/Type /Font
+/BaseFont /Courier-BoldOblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+15 0 obj
+<<
+/Type /Font
+/BaseFont /Times-Roman
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+16 0 obj
+<<
+/Type /Font
+/BaseFont /Times-Bold
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+17 0 obj
+<<
+/Type /Font
+/BaseFont /Times-Italic
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+18 0 obj
+<<
+/Type /Font
+/BaseFont /Times-BoldItalic
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+19 0 obj
+<<
+/Type /Font
+/BaseFont /ZapfDingbats
+/Subtype /Type1
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+20 0 obj
+<<
+/Type /Font
+/BaseFont /Symbol
+/Subtype /Type1
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+2 0 obj
+<<
+/ProcSet [/PDF /Text /ImageB /ImageC /ImageI]
+/Font <<
+/F1 7 0 R
+/F2 8 0 R
+/F3 9 0 R
+/F4 10 0 R
+/F5 11 0 R
+/F6 12 0 R
+/F7 13 0 R
+/F8 14 0 R
+/F9 15 0 R
+/F10 16 0 R
+/F11 17 0 R
+/F12 18 0 R
+/F13 19 0 R
+/F14 20 0 R
+>>
+/XObject <<
+>>
+>>
+endobj
+21 0 obj
+<<
+/Producer (jsPDF 2.5.1)
+/CreationDate (D:20260223123022-03'00')
+>>
+endobj
+22 0 obj
+<<
+/Type /Catalog
+/Pages 1 0 R
+/OpenAction [3 0 R /FitH null]
+/PageLayout /OneColumn
+>>
+endobj
+xref
+0 23
+0000000000 65535 f 
+0000008544 00000 n 
+0000010369 00000 n 
+0000000015 00000 n 
+0000000152 00000 n 
+0000005810 00000 n 
+0000005947 00000 n 
+0000008607 00000 n 
+0000008732 00000 n 
+0000008862 00000 n 
+0000008995 00000 n 
+0000009133 00000 n 
+0000009257 00000 n 
+0000009386 00000 n 
+0000009518 00000 n 
+0000009654 00000 n 
+0000009782 00000 n 
+0000009909 00000 n 
+0000010038 00000 n 
+0000010171 00000 n 
+0000010273 00000 n 
+0000010619 00000 n 
+0000010705 00000 n 
+trailer
+<<
+/Size 23
+/Root 22 0 R
+/Info 21 0 R
+/ID [ <D9F22B86F61F94EF66A4E113B0C37D27> <D9F22B86F61F94EF66A4E113B0C37D27> ]
+>>
+startxref
+10809
+%%EOF
